@@ -72,3 +72,17 @@ class TicketingSystem {
 }
 
 
+fun main() {
+    val ticketingSystem = TicketingSystem()
+
+    val ticket1 = ticketingSystem.createTicket("Issue with login", "Users unable to log in.")
+    val ticket2 = ticketingSystem.createTicket("Server downtime", "Website not accessible.")
+
+    println("All Tickets: ${ticketingSystem.getAllTickets()}")
+
+    ticketingSystem.assignTicket(ticket1.id, "SupportAgent1")
+    ticketingSystem.resolveTicket(ticket1.id)
+    ticketingSystem.closeTicket(ticket1.id)
+
+    println("All Tickets after resolution: ${ticketingSystem.getAllTickets()}")
+}
