@@ -77,12 +77,22 @@ fun main() {
 
     val ticket1 = ticketingSystem.createTicket("Issue with login", "Users unable to log in.")
     val ticket2 = ticketingSystem.createTicket("Server downtime", "Website not accessible.")
+    val ticket3 = ticketingSystem.createTicket("Bug in application", "App crashes on certain actions.")
+    val ticket4 = ticketingSystem.createTicket("Feature request", "Requesting a new feature to improve user experience.")
 
     println("All Tickets: ${ticketingSystem.getAllTickets()}")
 
     ticketingSystem.assignTicket(ticket1.id, "SupportAgent1")
-    ticketingSystem.resolveTicket(ticket1.id)
-    ticketingSystem.closeTicket(ticket1.id)
+    ticketingSystem.assignTicket(ticket2.id, "SupportAgent2")
+    ticketingSystem.assignTicket(ticket3.id, "SupportAgent1")
+    ticketingSystem.assignTicket(ticket4.id, "SupportAgent2")
 
-    println("All Tickets after resolution: ${ticketingSystem.getAllTickets()}")
+    ticketingSystem.resolveTicket(ticket1.id)
+    ticketingSystem.resolveTicket(ticket3.id)
+
+    ticketingSystem.closeTicket(ticket1.id)
+    ticketingSystem.closeTicket(ticket2.id)
+
+    println("All Tickets after resolution and closure: ${ticketingSystem.getAllTickets()}")
 }
+
